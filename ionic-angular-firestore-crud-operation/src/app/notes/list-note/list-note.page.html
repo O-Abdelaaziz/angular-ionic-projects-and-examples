@@ -4,9 +4,8 @@
 <div *ngIf="!isLoading && notes.length <=0">
   <p class="ion-text-center">No Notes Available!</p>
 </div>
-<ion-list slot="start" *ngIf="!isLoading && notes.length>0">
+<ion-list *ngIf="!isLoading && notes.length>0">
   <ion-item
-    detail
     [routerLink]="['/display-note', item.id]"
     *ngFor="let item of notes"
   >

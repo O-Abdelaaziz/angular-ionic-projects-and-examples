@@ -26,6 +26,10 @@ const routes: Routes = [
         (m) => m.DisplayNotePageModule
       ),
   },
+  {
+    path: 'create-note',
+    loadChildren: () => import('./notes/create-note/create-note.module').then( m => m.CreateNotePageModule)
+  },
 ];
 
 @NgModule({

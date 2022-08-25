@@ -10,10 +10,10 @@ import { ListNotePageModule } from './../notes/list-note/list-note.module';
 @NgModule({
   imports: [
     CommonModule,
+    HomePageRoutingModule,
     FormsModule,
     IonicModule,
     ListNotePageModule,
-    HomePageRoutingModule,
   ],
   declarations: [HomePage],
 })
