@@ -1,0 +1,20 @@
+<div class="spin" *ngIf="isLoading">
+  <ion-spinner color="primary"></ion-spinner>
+</div>
+<div *ngIf="!isLoading && notes.length <=0">
+  <p class="ion-text-center">No Notes Available!</p>
+</div>
+<ion-list slot="start" *ngIf="!isLoading && notes.length>0">
+  <ion-item
+    detail
+    [routerLink]="['/display-note', item.id]"
+    *ngFor="let item of notes"
+  >
+    <ion-icon name="bookmark-outline" slot="start"></ion-icon>
+    <ion-label>
+      <h2>{{item.title}}</h2>
+      <h3>{{item.priority}}</h3>
+      <p>{{item.content}}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
