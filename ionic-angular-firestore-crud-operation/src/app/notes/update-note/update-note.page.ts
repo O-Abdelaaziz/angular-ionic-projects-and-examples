@@ -49,11 +49,9 @@ export class UpdateNotePage implements OnInit, OnDestroy {
         .subscribe(
           (response) => {
             this.selectedPriority = response.priority;
-            this.noteForm = this.formBuilder.group({
-              title: new FormControl(response.title, Validators.required),
-              priority: new FormControl(response.priority, Validators.required),
-              content: new FormControl(response.content, Validators.required),
-            });
+            this.noteForm.get('title').setValue(response.title);
+            this.noteForm.get('priority').setValue(response.priority);
+            this.noteForm.get('content').setValue(response.content);
           },
           (error) => {
             this.alertController

@@ -6,6 +6,7 @@
     <ion-title>Edit Note</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content class="ion-padding">
   <form [formGroup]="noteForm" (ngSubmit)="onSubmit()" novalidate>
     <ion-item>
@@ -19,11 +20,7 @@
 
     <ion-item>
       <ion-label position="floating">Priority</ion-label>
-      <ion-select
-        placeholder="Select priority"
-        formControlName="priority"
-        [(ngModel)]="selectedPriority"
-      >
+      <ion-select placeholder="Select priority" formControlName="priority">
         <ion-select-option value="Low">Low</ion-select-option>
         <ion-select-option value="Medium">Medium</ion-select-option>
         <ion-select-option value="High">High</ion-select-option>
