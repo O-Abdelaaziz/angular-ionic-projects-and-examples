@@ -3,7 +3,7 @@ import { NoteService } from './../../services/note.service';
 import { Note } from './../../models/note.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-display-note',
@@ -17,6 +17,7 @@ export class DisplayNotePage implements OnInit, OnDestroy {
   constructor(
     private noteService: NoteService,
     private alertController: AlertController,
+    public toastController: ToastController,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {
@@ -74,6 +75,7 @@ export class DisplayNotePage implements OnInit, OnDestroy {
             text: 'Delete',
             handler: () => {
               this.noteService.deleteNote(this.note.id).then(() => {
+                this.presentToast();
                 this.router.navigate(['/home']);
               });
             },
@@ -81,6 +83,19 @@ export class DisplayNotePage implements OnInit, OnDestroy {
         ],
       })
       .then((alertElement) => alertElement.present());
+  }
+
+  presentToast() {
+    this.toastController
+      .create({
+        header: 'Successfully Deleted',
+        message: 'Note deleted successfully.',
+        icon: 'checkmark',
+        duration: 5000,
+      })
+      .then((toastElement) => {
+        toastElement.present();
+      });
   }
 
   ngOnDestroy(): void {
