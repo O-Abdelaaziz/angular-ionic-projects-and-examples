@@ -6,19 +6,20 @@ The Note application will be able to perform the read, create, update and delete
 
 ### Screenshots
 ##### List notes
-![list_notes](screenshots/0.png)
+[<img src="screenshots/0.png" width="250"/>](screenshots/0.png)
 
 ##### Add nete
-![add_nete](screenshots/1.png)
+[<img src="screenshots/1.png" width="250"/>](screenshots/1.png)
 
 ##### Edite note
-![edite_note](screenshots/2.png)
+[<img src="screenshots/2.png" width="250"/>](screenshots/2.png)
 
 ##### Display note
-![display_note](screenshots/3.png)
+[<img src="screenshots/3.png" width="250"/>](screenshots/3.png)
 
 ##### Delete note
-![delete_note](screenshots/4.png)
+[<img src="screenshots/4.png" width="250"/>](screenshots/4.png)
+
 
 ## Conclusion
 In this repository you learned how to perform the CRUD operations in Firestore database inside Firebase using Ionic 6 application which was created using Angular 14.
