@@ -1,7 +1,8 @@
+import { Subscription } from 'rxjs';
 import { NoteService } from './../../services/note.service';
 import { Router } from '@angular/router';
 import { Note } from './../../models/note.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
   FormBuilder,
   FormControl,

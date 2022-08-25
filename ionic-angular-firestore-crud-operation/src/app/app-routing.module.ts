@@ -28,7 +28,17 @@ const routes: Routes = [
   },
   {
     path: 'create-note',
-    loadChildren: () => import('./notes/create-note/create-note.module').then( m => m.CreateNotePageModule)
+    loadChildren: () =>
+      import('./notes/create-note/create-note.module').then(
+        (m) => m.CreateNotePageModule
+      ),
+  },
+  {
+    path: 'edit-note/:id',
+    loadChildren: () =>
+      import('./notes/update-note/update-note.module').then(
+        (m) => m.UpdateNotePageModule
+      ),
   },
 ];
 

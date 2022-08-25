@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="noteForm" (ngSubmit)="onSubmit()" novalidate>
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input
+        placeholder="Enter notes title"
+        autofocus="true"
+        formControlName="title"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Priority</ion-label>
+      <ion-select formControlName="priority">
+        <ion-select-option value="Low">Low</ion-select-option>
+        <ion-select-option value="Medium">Medium</ion-select-option>
+        <ion-select-option value="High">High</ion-select-option>
+        <ion-select-option value="Urgent">Urgent</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Content</ion-label>
+      <ion-textarea
+        placeholder="Enter your notes here..."
+        rows="10"
+        formControlName="content"
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-button
+      color="primary"
+      class="ion-float-left"
+      type="submit"
+      [disabled]="!noteForm.valid"
+      >Save</ion-button
+    >
+  </form>
+</ion-content>
