@@ -19,6 +19,13 @@ const routes: Routes = [
         (m) => m.ListNotePageModule
       ),
   },
+  {
+    path: 'display-note/:id',
+    loadChildren: () =>
+      import('./notes/display-note/display-note.module').then(
+        (m) => m.DisplayNotePageModule
+      ),
+  },
 ];
 
 @NgModule({
