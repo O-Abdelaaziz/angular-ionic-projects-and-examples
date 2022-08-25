@@ -59,6 +59,30 @@ export class DisplayNotePage implements OnInit, OnDestroy {
     });
   }
 
+  onDelete() {
+    this.alertController
+      .create({
+        header: 'Delete',
+        subHeader: 'Are you sure?',
+        message: 'Do you really want to delete this note.',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+          },
+          {
+            text: 'Delete',
+            handler: () => {
+              this.noteService.deleteNote(this.note.id).then(() => {
+                this.router.navigate(['/home']);
+              });
+            },
+          },
+        ],
+      })
+      .then((alertElement) => alertElement.present());
+  }
+
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();

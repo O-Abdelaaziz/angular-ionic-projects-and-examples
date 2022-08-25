@@ -8,6 +8,9 @@
       <ion-button color="primary" [routerLink]="['/edit-note', note.id]">
         <ion-icon name="create-outline"></ion-icon>
       </ion-button>
+      <ion-button color="danger" (click)="onDelete()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
