@@ -31,6 +31,24 @@ export class ListNotePage implements OnInit, OnDestroy {
       this.isLoading = false;
     });
   }
+  sePriorityColor(priority: string) {
+    let priorityColor = 'primary';
+    switch (priority) {
+      case (priority = 'Low'): {
+        console.log('Low');
+
+        return (priorityColor = 'primary');
+      }
+      case (priority = 'Urgent'): {
+        console.log('danger');
+
+        return (priorityColor = 'danger');
+      }
+      default: {
+        return priorityColor;
+      }
+    }
+  }
 
   ngOnDestroy(): void {
     if (this.subscription) {

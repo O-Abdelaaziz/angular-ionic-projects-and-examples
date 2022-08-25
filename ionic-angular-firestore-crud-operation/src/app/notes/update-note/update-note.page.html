@@ -19,7 +19,11 @@
 
     <ion-item>
       <ion-label position="floating">Priority</ion-label>
-      <ion-select formControlName="priority">
+      <ion-select
+        placeholder="Select priority"
+        formControlName="priority"
+        [(ngModel)]="selectedPriority"
+      >
         <ion-select-option value="Low">Low</ion-select-option>
         <ion-select-option value="Medium">Medium</ion-select-option>
         <ion-select-option value="High">High</ion-select-option>

@@ -19,6 +19,7 @@ import {
 export class UpdateNotePage implements OnInit, OnDestroy {
   public id = '';
   public noteForm: FormGroup;
+  public selectedPriority: string;
   private subscription: Subscription;
 
   constructor(
@@ -47,6 +48,7 @@ export class UpdateNotePage implements OnInit, OnDestroy {
         .getNote(this.activatedRoute.snapshot.paramMap.get('id'))
         .subscribe(
           (response) => {
+            this.selectedPriority = response.priority;
             this.noteForm = this.formBuilder.group({
               title: new FormControl(response.title, Validators.required),
               priority: new FormControl(response.priority, Validators.required),

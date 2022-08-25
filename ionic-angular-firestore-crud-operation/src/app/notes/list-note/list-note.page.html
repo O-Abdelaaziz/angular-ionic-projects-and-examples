@@ -9,10 +9,16 @@
     [routerLink]="['/display-note', item.id]"
     *ngFor="let item of notes"
   >
-    <ion-icon name="bookmark-outline" slot="start"></ion-icon>
+    <ion-icon
+      name="bookmark"
+      [color]="item.priority| priorityColor"
+      slot="start"
+    ></ion-icon>
     <ion-label>
       <h2>{{item.title}}</h2>
-      <h3>{{item.priority}}</h3>
+      <ion-note [color]="item.priority| priorityColor"
+        >{{item.priority}}</ion-note
+      >
       <p>{{item.content}}</p>
     </ion-label>
   </ion-item>
