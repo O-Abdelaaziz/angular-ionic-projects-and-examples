@@ -58,4 +58,21 @@ export class Tab1Page implements OnInit {
   public genreSelectionChanged(event: CustomEvent) {
     console.log(event.detail.value);
   }
+
+  loadData(event) {
+    this.page += 1;
+    this.filteredGenreIds = '';
+    this.movieService
+      .getPoplarList(this.movieType, this.page, this.filteredGenreIds)
+      .subscribe((response) => {
+        response.results.forEach((movie) => {
+          this.appCardContainer.push(movie);
+        });
+        event.target.complete();
+
+        if (response.results.length === 0) {
+          event.target.disabled = true;
+        }
+      });
+  }
 }

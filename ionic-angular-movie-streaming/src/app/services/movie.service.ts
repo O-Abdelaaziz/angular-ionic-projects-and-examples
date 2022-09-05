@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const API_KEY = '8658db4a977bd67dbe8c82ada29a0289';
+const API_KEY = '';
 @Injectable({
   providedIn: 'root',
 })
