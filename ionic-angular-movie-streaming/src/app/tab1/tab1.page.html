@@ -11,26 +11,39 @@
   <ion-list>
     <app-slider [sliderInputValue]="sliderContainer"></app-slider>
 
-    <ion-item>
-      <ion-label> Discover Movies by genres</ion-label>
-      <ion-icon style="font-size: 24px" name="filter"></ion-icon>
-      <ion-select
-        placeholder="Select Genre"
-        [value]="genreSelectedValue"
-        (ionChange)="genreSelectionChanged($event)"
-        multiple="true"
-      >
-        <ion-select-option
-          *ngFor="let genre of genreListContainer"
-          [value]="genre.id"
-          >{{genre.name}}</ion-select-option
-        >
-      </ion-select>
-    </ion-item>
+    <ion-grid fixed="true">
+      <div>
+        <ion-list>
+          <ion-item>
+            <ion-label> Discover Movies by genres</ion-label>
+            <ion-icon style="font-size: 24px" name="filter"></ion-icon>
+            <ion-select
+              placeholder="Select Genre"
+              [value]="genreSelectedValue"
+              (ionChange)="genreSelectionChanged($event)"
+              multiple="true"
+            >
+              <ion-select-option
+                *ngFor="let genre of genreListContainer"
+                [value]="genre.id"
+                >{{genre.name}}</ion-select-option
+              >
+            </ion-select>
+          </ion-item>
 
-    <ion-grid>
+          <ion-item>
+            <ion-label style="font: size 18px">Popular Movie</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
       <ion-row>
-        <ion-col *ngFor="let movie of appCardContainer">
+        <ion-col
+          *ngFor="let movie of appCardContainer"
+          size-sm="6"
+          size-md="4"
+          size-lg="2"
+          size-xs="2"
+        >
           <app-card
             [title]="movie.title"
             [image]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
