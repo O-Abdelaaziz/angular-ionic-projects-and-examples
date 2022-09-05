@@ -16,6 +16,7 @@ export class Tab1Page implements OnInit {
   public page: number;
   public filteredGenreIds: string;
   public appCardContainer: any = [];
+  public loadingCurrentEventData: any;
 
   constructor(private movieService: MovieService) {}
 
@@ -46,16 +47,23 @@ export class Tab1Page implements OnInit {
   public initializeContainer() {
     this.page = 1;
     this.filteredGenreIds = '';
-    this.initializePopularContainer();
+    this.loadPoplarContainer();
   }
 
-  public initializePopularContainer() {
+  public loadPoplarContainer() {
     this.movieService
       .getPoplarList(this.movieType, this.page, this.filteredGenreIds)
       .subscribe((response) => {
         response.results.forEach((movie) => {
           this.appCardContainer.push(movie);
         });
+
+        if (this.page > 1) {
+          this.loadingCurrentEventData.target.complete();
+          if (response.results.length === 0) {
+            this.loadingCurrentEventData.target.disabled = true;
+          }
+        }
       });
   }
 
@@ -67,24 +75,14 @@ export class Tab1Page implements OnInit {
       this.page = 1;
       this.appCardContainer = [];
       this.filteredGenreIds = genreEl.toString();
-      this.initializePopularContainer();
+      this.loadPoplarContainer();
     }
   }
 
   loadData(event) {
     this.page += 1;
     this.filteredGenreIds = '';
-    this.movieService
-      .getPoplarList(this.movieType, this.page, this.filteredGenreIds)
-      .subscribe((response) => {
-        response.results.forEach((movie) => {
-          this.appCardContainer.push(movie);
-        });
-        event.target.complete();
-
-        if (response.results.length === 0) {
-          event.target.disabled = true;
-        }
-      });
+    this.loadingCurrentEventData = event;
+    this.loadPoplarContainer();
   }
 }
