@@ -13,12 +13,16 @@ export class Tab1Page implements OnInit {
   public sliderContainer: Trending[] = [];
   public genreListContainer: Genre[] = [];
   public genreSelectedValue: string;
+  public page: number;
+  public filteredGenreIds: string;
+  public appCardContainer: any = [];
 
   constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
     this.initializeSliderContainer();
     this.initializeGenreContainer();
+    this.initializePopularContainer();
   }
 
   public initializeSliderContainer() {
@@ -37,6 +41,18 @@ export class Tab1Page implements OnInit {
         this.genreListContainer.push(genre);
       });
     });
+  }
+
+  public initializePopularContainer() {
+    this.page = 1;
+    this.filteredGenreIds = '';
+    this.movieService
+      .getPoplarList(this.movieType, this.page, this.filteredGenreIds)
+      .subscribe((response) => {
+        response.results.forEach((movie) => {
+          this.appCardContainer.push(movie);
+        });
+      });
   }
 
   public genreSelectionChanged(event: CustomEvent) {

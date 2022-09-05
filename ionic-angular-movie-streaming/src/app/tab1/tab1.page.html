@@ -27,6 +27,17 @@
         >
       </ion-select>
     </ion-item>
-    <ion-item> </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let movie of appCardContainer">
+          <app-card
+            [title]="movie.title"
+            [image]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+            [model]="movie"
+          ></app-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-list>
 </ion-content>
