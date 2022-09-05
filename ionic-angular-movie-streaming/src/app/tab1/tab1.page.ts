@@ -1,3 +1,4 @@
+import { Trending } from './../models/trending.model';
 import { MovieService } from './../services/movie.service';
 import { Component } from '@angular/core';
 
@@ -8,14 +9,18 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
   public movieType = 'movie';
-
+  public sliderContainer: Trending[] = [];
   constructor(private movieService: MovieService) {
     this.initializeSliderContainer();
   }
 
   public initializeSliderContainer() {
     this.movieService.getTrendingList(this.movieType).subscribe((response) => {
-      console.log(response);
+      response.results.forEach((movie) => {
+        this.sliderContainer.push(movie);
+      });
+
+      console.log(this.sliderContainer);
     });
   }
 }

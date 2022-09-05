@@ -4,10 +4,11 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { SliderComponent } from './slider/slider.component';
-import { ModelComponent } from './model/model.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  declarations: [CardComponent, SliderComponent, ModelComponent],
+  declarations: [CardComponent, SliderComponent, ModalComponent],
   imports: [CommonModule, FormsModule, IonicModule],
+  exports: [CardComponent, SliderComponent, ModalComponent],
 })
 export class SharedModule {}

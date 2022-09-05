@@ -1,3 +1,4 @@
+import { TrendingPage } from './../models/trending.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -15,8 +16,8 @@ export class MovieService {
     );
   }
 
-  public getTrendingList(type: string): Observable<any> {
-    return this.httpClient.get(
+  public getTrendingList(type: string): Observable<TrendingPage> {
+    return this.httpClient.get<TrendingPage>(
       `https://api.themoviedb.org/3/trending/${type}/day?api_key=${API_KEY}&language=en-US`
     );
   }

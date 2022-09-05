@@ -1,3 +1,16 @@
-<p>
-  slider works!
-</p>
+<ion-slides pager="true" [options]="slideOptions">
+  <ion-slide
+    *ngFor="let movie of sliderInputValue"
+    (click)="sliderClickEventTrigger(movie)"
+  >
+    <img
+      [ngClass]="{ 'ion-hide': isSmallSizeScreen ? true : false }"
+      [src]="'https://image.tmdb.org/t/p/original/' + movie.backdrop_path"
+    />
+    <img
+      [ngClass]="{ 'ion-hide': !isSmallSizeScreen ? true : false }"
+      [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
+    />
+    <h2 class="ion-hide-xl text-content">{{ movie.title }}</h2>
+  </ion-slide>
+</ion-slides>
