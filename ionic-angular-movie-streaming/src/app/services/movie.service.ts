@@ -82,4 +82,10 @@ export class MovieService {
       this.currentModel.pop();
     });
   }
+
+  getSearchList(type: string, page: number, query: string): Observable<any> {
+    return this.httpClient.get(
+      `https://api.themoviedb.org/3/search/${type}?api_key=${API_KEY}&language=en-US&page=${page}&query=${query}`
+    );
+  }
 }
