@@ -109,4 +109,30 @@
       </ion-item>
     </ion-list>
   </div>
+
+  <ion-grid fixed="true" *ngIf="appRecommendationsContainer.length > 0">
+    <ion-list>
+      <ion-item>
+        <ion-label style="font-size: 18px">Recommendations</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-row>
+      <ion-col
+        *ngFor="let item of appRecommendationsContainer"
+        size-lg="2"
+        size-md="4"
+        size-sm="6"
+        size-xs="6"
+      >
+        <app-card
+          [title]="item.title"
+          [image]="item.image"
+          [model]="item.modelItem"
+          [voterRating]="item.voterRating"
+          (cardEventTrigger)="cardEventListener($event)"
+        >
+        </app-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

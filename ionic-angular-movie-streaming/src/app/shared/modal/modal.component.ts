@@ -76,10 +76,33 @@ export class ModalComponent implements OnInit {
         this.dangerousVideoUrl
       );
     }
+
+    this.initializeRecommendationsContainer();
   }
 
   closeModel() {
     this.service.dismissModel();
+  }
+
+  initializeRecommendationsContainer() {
+    this.service
+      .getRecommendationList(this.modelType, this.id)
+      .subscribe((responseEl) => {
+        responseEl.results.forEach((element) => {
+          this.appRecommendationsContainer.push({
+            id: element.id,
+            title:
+              this.modelType === 'movie'
+                ? element.title
+                : element.original_name,
+            descriptoin: element.overview,
+            image: 'http://image.tmdb.org/t/p/original/' + element.poster_path,
+            voterRating: element.vote_average,
+            modelItem: element,
+          });
+        });
+        this.isLoading = false;
+      });
   }
 
   cardEventListener(modelItem) {
