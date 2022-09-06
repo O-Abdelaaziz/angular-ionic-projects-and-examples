@@ -49,6 +49,7 @@
             [image]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
             [voteRating]="movie.vote_average"
             [model]="movie"
+            (cardEventTrigger)="cardEventListener($event)"
           ></app-card>
         </ion-col>
       </ion-row>

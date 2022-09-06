@@ -1,15 +1,22 @@
+import { ModalComponent } from './../shared/modal/modal.component';
 import { Genres } from './../models/genre.model';
 import { TrendingPage } from './../models/trending.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ModalController } from '@ionic/angular';
 
 const API_KEY = '';
 @Injectable({
   providedIn: 'root',
 })
 export class MovieService {
-  constructor(private httpClient: HttpClient) {}
+  public currentModel = [];
+
+  constructor(
+    private httpClient: HttpClient,
+    public modalController: ModalController
+  ) {}
 
   public getGenreList(type: string): Observable<Genres> {
     return this.httpClient.get<Genres>(
@@ -55,5 +62,24 @@ export class MovieService {
     return this.httpClient.get(
       `https://api.themoviedb.org/3/${type}/${id}/recommendations?api_key=${API_KEY}&language=en-US`
     );
+  }
+
+  async presentModal(modelItem, type) {
+    const modal = await this.modalController.create({
+      component: ModalComponent,
+      componentProps: {
+        modelItemList: modelItem,
+        modelType: type,
+      },
+    });
+
+    this.currentModel.push(modal);
+    return await modal.present();
+  }
+
+  dismissModel() {
+    this.currentModel[this.currentModel.length - 1].dismiss().then(() => {
+      this.currentModel.pop();
+    });
   }
 }

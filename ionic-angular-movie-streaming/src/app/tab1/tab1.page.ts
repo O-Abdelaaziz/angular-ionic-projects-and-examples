@@ -2,6 +2,7 @@ import { Genre } from './../models/genre.model';
 import { Trending } from './../models/trending.model';
 import { MovieService } from './../services/movie.service';
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-tab1',
@@ -84,5 +85,18 @@ export class Tab1Page implements OnInit {
     this.filteredGenreIds = '';
     this.loadingCurrentEventData = event;
     this.loadPoplarContainer();
+  }
+
+  cardEventListener(modelItem) {
+    forkJoin(
+      this.movieService.getDetailList(this.movieType, modelItem.id),
+      this.movieService.getCreditList(this.movieType, modelItem.id),
+      this.movieService.getVideoList(this.movieType, modelItem.id)
+    ).subscribe((responseEl) => {
+      modelItem.detailResponseEl = responseEl[0];
+      modelItem.creditsResponseEl = responseEl[1];
+      modelItem.videos = responseEl[2];
+      this.movieService.presentModal(modelItem, this.movieType);
+    });
   }
 }
