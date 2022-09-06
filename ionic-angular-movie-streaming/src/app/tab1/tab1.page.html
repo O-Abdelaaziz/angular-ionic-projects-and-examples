@@ -47,6 +47,7 @@
           <app-card
             [title]="movie.title"
             [image]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path"
+            [voteRating]="movie.vote_average"
             [model]="movie"
           ></app-card>
         </ion-col>
