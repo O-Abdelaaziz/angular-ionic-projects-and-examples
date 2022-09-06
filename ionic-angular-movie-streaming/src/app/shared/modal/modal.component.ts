@@ -39,5 +39,6 @@ export class ModalComponent implements OnInit {
       this.modelType === 'movie'
         ? this.modelItemList.detailResponseEl.title
         : this.modelItemList.detailResponseEl.original_name;
+    this.isLoading = false;
   }
 }
