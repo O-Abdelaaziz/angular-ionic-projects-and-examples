@@ -8,6 +8,9 @@
 ##### Style 2
 [<img src="screenshots/1.png"/>](screenshots/1.png)
 
+##### Style 3
+[<img src="screenshots/2.png"/>](screenshots/2.png)
+
 ## License
 
 MIT
