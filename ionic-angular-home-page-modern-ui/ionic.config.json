@@ -1,0 +1,7 @@
+{
+  "name": "ionic-angular-home-page-modern-ui",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
