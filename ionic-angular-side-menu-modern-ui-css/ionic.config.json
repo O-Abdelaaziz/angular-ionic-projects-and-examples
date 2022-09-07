@@ -1,0 +1,7 @@
+{
+  "name": "ionic-angular-side-menu-modern-ui-css",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
