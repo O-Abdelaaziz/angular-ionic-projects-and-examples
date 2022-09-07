@@ -3,9 +3,16 @@
     <ion-menu menuId="first" contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-
+          <!-- <ion-list-header>Inbox</ion-list-header>
+          <ion-note>hi@ionicframework.com</ion-note> -->
+          <div class="menu-header-bg"></div>
+          <div class="header-content">
+            <img src="../assets/images/user.jpg" alt="user image" />
+            <ion-label>
+              <h2>Ouakala Abdelaaziz</h2>
+              <h3>Algeria</h3>
+            </ion-label>
+          </div>
           <ion-menu-toggle
             auto-hide="false"
             *ngFor="let p of appPages; let i = index"
