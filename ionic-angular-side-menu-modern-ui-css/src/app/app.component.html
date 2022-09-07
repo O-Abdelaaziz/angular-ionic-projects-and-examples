@@ -5,20 +5,28 @@
         <ion-list id="inbox-list">
           <!-- <ion-list-header>Inbox</ion-list-header>
           <ion-note>hi@ionicframework.com</ion-note> -->
-          <div class="menu-header-bg"></div>
+          <!-- <div class="menu-header-bg"></div>
           <div class="header-content">
             <img src="../assets/images/user.jpg" alt="user image" />
             <ion-label>
               <h2>Ouakala Abdelaaziz</h2>
               <h3>Algeria</h3>
             </ion-label>
-          </div>
-          <div class="action-button">
+          </div> -->
+          <!-- <div class="action-button">
             <ion-button>
               <ion-icon slot="start" name="add"></ion-icon>
               Add Branch
             </ion-button>
+          </div> -->
+          <div class="user-main">
+            <div
+              class="user-div user-image"
+              [style.backgroundImage]="'url(assets/images/user.jpg)'"
+            ></div>
+            <ion-label class="user-name">O.Abdelaaziz</ion-label>
           </div>
+
           <ion-menu-toggle
             auto-hide="false"
             *ngFor="let p of appPages; let i = index"
