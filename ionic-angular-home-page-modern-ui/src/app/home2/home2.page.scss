@@ -1,0 +1,150 @@
+ion-content {
+  --background: #263b8a;
+}
+
+.main-content {
+  width: 100%;
+
+  .menu-btn {
+    position: relative;
+    top: 40px;
+    left: 10px;
+  }
+
+  ion-label {
+    display: block;
+    color: #263b8a;
+    text-align: left;
+  }
+
+  .user {
+    padding: 20px;
+    width: 100%;
+    height: 260px;
+    // background: linear-gradient(to right, #b91d73, #f953c6);
+    background: #263b8a;
+    display: flex;
+    padding-top: 40px;
+    justify-content: space-between;
+
+    .user-info {
+      padding-top: 35px;
+
+      .welcome {
+        font-size: 18px;
+        color: white;
+        font-weight: 500;
+      }
+
+      .username {
+        font-size: 18px;
+        color: white;
+        font-weight: 600;
+      }
+    }
+
+    .user-img {
+      height: 80px;
+      width: 80px;
+      border: 3px solid #ccc;
+      background-position: top;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 5px;
+    }
+  }
+
+  .content {
+    background: white;
+    width: 100%;
+    border-top-right-radius: 75px;
+    border-top-left-radius: 75px;
+    margin-top: -90px;
+    padding-top: 30px;
+
+    .hello {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 10px;
+      padding-left: 5px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    ion-grid {
+      padding: 0px;
+    }
+
+    .col-div {
+      // style 3
+      // background: linear-gradient(to right, #263b8a, #8893bf);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 150px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      // style 3
+      // border-top-left-radius: 75px;
+      // border-bottom-right-radius: 75px;
+
+      img {
+        width: 70px;
+      }
+
+      ion-label {
+        color: var(--ion-color-primary);
+        //color: white;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.animated {
+  -webkit-animation-direction: 4s;
+  animation-duration: 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+  }
+  80% {
+    -webkit-transform: translateY(10px);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
+
+.bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+}
+
+@keyframes bounceInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateY(-30px);
+  }
+  80% {
+    -webkit-transform: translateY(10px);
+  }
+  100% {
+    -webkit-transform: translateY(10px);
+  }
+}
