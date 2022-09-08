@@ -1,5 +1,61 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Blank </ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+  <div class="back-grad">
+    <div class="btn-flex">
+      <div>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home" color="light"></ion-back-button>
+        </ion-buttons>
+      </div>
+
+      <div>
+        <ion-button fill="clear" size="small" color="light">
+          <ion-icon name="search-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+
+        <ion-button fill="clear" size="small" color="light">
+          <ion-icon name="notifications-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <ion-label class="subject">Select Chapter </ion-label>
+  </div>
+  <!-- Default Segment -->
+  <ion-segment value="chapters" mode="md" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="chapters">
+      <ion-label>Chapters</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="tests">
+      <ion-label>Tests</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
+
+<ion-content>
+  <div class="main-content">
+    <span *ngIf="segmentId === 'chapters'">
+      <div class="card" *ngFor="let chapter of chapters">
+        <img
+          src="../../assets/images/download.png"
+          alt="download"
+          class="download"
+        />
+        <div
+          class="round-image bg-image"
+          [style.backgroundImage]="'url('+chapter.img+')'"
+        ></div>
+
+        <div class="content">
+          <ion-label class="title">{{chapter.name}}</ion-label>
+          <ion-label class="small">{{chapter.name}}</ion-label>
+          <ion-progress-bar
+            color="warning"
+            [value]="chapter.percentage/100"
+          ></ion-progress-bar>
+          <ion-label class="small">Download notes of this chapter</ion-label>
+          <ion-label class="percentage">{{chapter.percentage}}%</ion-label>
+        </div>
+      </div>
+    </span>
+  </div>
+</ion-content>
