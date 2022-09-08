@@ -1,0 +1,7 @@
+Folder Creation order
+1- ionic-angular-firestore-crud-operations
+2- ionic-angular-movie-streaming
+3- ionic-angular-dark-mode-toggle
+4- ionic-angular-side-menu-modern-ui-css
+5- ionic-angular-home-page-modern-ui
+6- ionic-angular-list-page-modern-ui
